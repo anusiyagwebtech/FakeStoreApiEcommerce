@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import RouterPage from './Navigation/RouterPage';
+import ProductProvider from './AuthProvider/AuthProvider';
 import './App.css';
+import SidebarContextProvider from './SidebarContextProvider/SidebarContextProvider';
+import CartContextProvider from './CartContextProvider/CartContextProvider';
 
 function App() {
+
+ 
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   
+    <SidebarContextProvider>
+      <CartContextProvider>
+    <ProductProvider>
+     
+     <RouterPage/>
+     
+    
+    </ProductProvider>
+    </CartContextProvider>
+    </SidebarContextProvider>
+    
+  )
 }
 
-export default App;
+export default App
